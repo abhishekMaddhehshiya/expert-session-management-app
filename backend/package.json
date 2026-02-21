@@ -7,7 +7,8 @@
   "type": "module",
   "scripts": {
     "dev": "tsx src/index.ts",
-    "seed": "tsx src/seed.ts"
+    "build": "echo 'Backend uses tsx runtime'",
+    "start": "tsx src/index.ts"
   },
   "author": "abhi",
   "license": "ISC",
