@@ -2,6 +2,8 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import { createServer } from "http";
+import path from "path";
+import { fileURLToPath } from "url";
 import connectDB from "./config/db.ts";
 import { initSocket } from "./socket.ts";
 import expertRoutes from "./routes/expertRoutes.ts";
@@ -10,6 +12,9 @@ import authRoutes from "./routes/authRoutes.ts";
 import notificationRoutes from "./routes/notificationRoutes.ts";
 
 dotenv.config();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 const httpServer = createServer(app);
@@ -35,8 +40,13 @@ app.use("/api/experts", expertRoutes);
 app.use("/api/bookings", bookingRoutes);
 app.use("/api/notifications", notificationRoutes);
 
-app.get("/", (_req, res) => {
-  res.json({ message: "Expert Session Booking API is running" });
+// Serve frontend static files in production
+const frontendDistPath = path.join(__dirname, "../../frontend/dist");
+app.use(express.static(frontendDistPath));
+
+// Handle client-side routing - serve index.html for all non-API routes
+app.get("*", (_req, res) => {
+  res.sendFile(path.join(frontendDistPath, "index.html"));
 });
 
 // Start server
