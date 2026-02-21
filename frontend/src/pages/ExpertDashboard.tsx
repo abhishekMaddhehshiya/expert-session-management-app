@@ -378,7 +378,6 @@ export default function ExpertDashboard() {
                                                 const slot = slotMap.get(key);
                                                 const isBooked = slot?.isBooked ?? false;
                                                 const isBlocked = slot?.isBlocked ?? false;
-                                                const isAvailable = !isBooked && !isBlocked;
                                                 const isToggling = togglingSlot === key;
 
                                                 return (
