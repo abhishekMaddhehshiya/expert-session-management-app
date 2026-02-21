@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+  </defs>
+  <!-- Rounded square background -->
+  <rect width="64" height="64" rx="14" fill="url(#bg)"/>
+  <!-- Person head -->
+  <circle cx="32" cy="20" r="8" fill="white"/>
+  <!-- Person body / shoulders -->
+  <path d="M18 44 C18 34 26 28 32 28 C38 28 46 34 46 44" fill="white" opacity="0.9"/>
+  <!-- Calendar/clock mark -->
+  <circle cx="46" cy="46" r="12" fill="white"/>
+  <circle cx="46" cy="46" r="10" fill="#6366f1"/>
+  <!-- Clock hands -->
+  <line x1="46" y1="46" x2="46" y2="39" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  <line x1="46" y1="46" x2="51" y2="46" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="46" cy="46" r="1.5" fill="white"/>
+</svg>
