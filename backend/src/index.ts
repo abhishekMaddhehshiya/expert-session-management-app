@@ -45,7 +45,7 @@ const frontendDistPath = path.join(__dirname, "../../frontend/dist");
 app.use(express.static(frontendDistPath));
 
 // Handle client-side routing - serve index.html for all non-API routes
-app.get("*", (_req, res) => {
+app.get("/{*path}", (_req, res) => {
   res.sendFile(path.join(frontendDistPath, "index.html"));
 });
 
